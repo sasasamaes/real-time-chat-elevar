@@ -1,0 +1,169 @@
+/* Estilo para el cuerpo del documento */
+body {
+  background-color: #282c34; /* Color de fondo del cuerpo */
+}
+
+/* Estilos para la clase "App" */
+.App {
+  text-align: center; /* Centrar el texto */
+  max-width: 728px; /* Ancho máximo del elemento */
+  margin: 0 auto; /* Margen automático para centrar horizontalmente */
+}
+
+/* Estilos para el encabezado dentro de la clase "App" */
+.App header {
+  background-color: #181717; /* Color de fondo del encabezado */
+  height: 10vh; /* Altura del encabezado */
+  min-height: 50px; /* Altura mínima del encabezado */
+  color: white; /* Color del texto */
+  position: fixed; /* Posición fija en la parte superior */
+  width: 100%; /* Ancho del encabezado */
+  max-width: 728px; /* Ancho máximo del encabezado */
+  top: 0; /* Alineación en la parte superior */
+  display: flex; /* Mostrar como contenedor flexible */
+  align-items: center; /* Alinear elementos verticalmente */
+  justify-content: space-between; /* Distribuir espacio entre elementos */
+  z-index: 99; /* Índice de apilamiento */
+  padding: 10px; /* Espaciado interno */
+  box-sizing: border-box; /* Caja de dimensiones incluyendo bordes y relleno */
+}
+
+/* Estilos para la sección dentro de la clase "App" */
+.App section {
+  display: flex; /* Mostrar como contenedor flexible */
+  flex-direction: column; /* Alinear elementos en columna */
+  justify-content: center; /* Alinear contenido en el centro vertical */
+  min-height: 100vh; /* Altura mínima del contenido */
+  background-color: rgb(40, 37, 53); /* Color de fondo de la sección */
+}
+
+/* Estilos para la etiqueta "main" */
+main {
+  padding: 10px; /* Espaciado interno */
+  height: 80vh; /* Altura del contenido principal */
+  margin: 10vh 0 10vh; /* Márgenes verticales */
+  overflow-y: scroll; /* Habilitar desplazamiento vertical */
+  display: flex; /* Mostrar como contenedor flexible */
+  flex-direction: column; /* Alinear elementos en columna */
+}
+
+/* Estilos para la barra de desplazamiento en "main" en navegadores WebKit */
+main::-webkit-scrollbar {
+  width: 0.25rem; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilos para el riel de la barra de desplazamiento */
+main::-webkit-scrollbar-track {
+  background: #1e1e24; /* Color de fondo del riel */
+}
+
+/* Estilos para el pulgar de la barra de desplazamiento */
+main::-webkit-scrollbar-thumb {
+  background: #6649b8; /* Color del pulgar */
+}
+
+/* Estilos para el formulario */
+form {
+  height: 10vh; /* Altura del formulario */
+  position: fixed; /* Posición fija en la parte inferior */
+  bottom: 0; /* Alineación en la parte inferior */
+  background-color: rgb(24, 23, 23); /* Color de fondo del formulario */
+  width: 100%; /* Ancho del formulario */
+  max-width: 728px; /* Ancho máximo del formulario */
+  display: flex; /* Mostrar como contenedor flexible */
+  font-size: 1.5rem; /* Tamaño de fuente */
+}
+
+/* Estilos para el botón dentro del formulario */
+form button {
+  width: 20%; /* Ancho del botón */
+  background-color: rgb(56, 56, 143); /* Color de fondo del botón */
+}
+
+/* Estilos para la etiqueta "input" */
+input {
+  line-height: 1.5; /* Altura de línea */
+  width: 100%; /* Ancho del campo de entrada */
+  font-size: 1.5rem; /* Tamaño de fuente */
+  background: rgb(58, 58, 58); /* Color de fondo del campo de entrada */
+  color: white; /* Color del texto */
+  outline: none; /* Eliminar el contorno predeterminado */
+  border: none; /* Eliminar borde */
+  padding: 0 10px; /* Espaciado interno */
+}
+
+/* Estilos para los botones */
+button {
+  background-color: #282c34; /* Color de fondo del botón */
+  border: none; /* Eliminar borde */
+  color: white; /* Color del texto */
+  padding: 15px 32px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Eliminar decoración de texto */
+  display: inline-block; /* Mostrar como elemento en línea */
+  cursor: pointer; /* Cambiar el cursor al puntero */
+  font-size: 1.25rem; /* Tamaño de fuente */
+}
+
+/* Estilos para el botón deshabilitado */
+button:disabled {
+  opacity: 0.5; /* Opacidad reducida */
+  cursor: not-allowed; /* Cambiar el cursor a no permitido */
+}
+
+/* Estilos para la clase "sign-in" */
+.sign-in {
+  color: #282c34; /* Color del texto */
+  background: white; /* Color de fondo */
+  max-width: 400px; /* Ancho máximo del elemento */
+  margin: 0 auto; /* Margen automático para centrar horizontalmente */
+}
+
+/* Estilos para las listas y elementos de lista */
+ul, li {
+  text-align: left; /* Alinear texto a la izquierda */
+  list-style: none; /* Quitar marcadores de lista */
+}
+
+/* Estilos para los párrafos */
+p {
+  max-width: 500px; /* Ancho máximo del párrafo */
+  margin-bottom: 12px; /* Margen inferior */
+  line-height: 24px; /* Altura de línea */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 25px; /* Radio de borde */
+  position: relative; /* Posición relativa */
+  color: white; /* Color del texto */
+  text-align: center; /* Alineación del texto */
+}
+
+/* Estilos para el contenedor de mensajes */
+.message {
+  display: flex; /* Mostrar como contenedor flexible */
+  align-items: center; /* Alinear elementos verticalmente */
+}
+
+/* Estilos para los mensajes enviados */
+.sent {
+  flex-direction: row-reverse; /* Alinear elementos en fila inversa */
+}
+
+.sent p {
+  color: white; /* Color del texto */
+  background: #0b93f6; /* Color de fondo */
+  align-self: flex-end; /* Alineación en la parte derecha */
+}
+
+/* Estilos para los mensajes recibidos */
+.received p {
+  background: #e5e5ea; /* Color de fondo */
+  color: black; /* Color del texto */
+}
+
+/* Estilos para las imágenes */
+img {
+  width: 40px; /* Ancho de la imagen */
+  height: 40px; /* Altura de la imagen */
+  border-radius: 50%; /* Radio de borde para hacerla circular */
+  margin: 2px 5px; /* Márgenes */
+}
