@@ -31,6 +31,7 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ auth, messagesRef }) => {
     e.preventDefault();
 
     const currentUser = auth.currentUser;
+    console.log(currentUser)
     const uid = currentUser?.uid;
     const photoURL = currentUser?.photoURL;
 
@@ -40,6 +41,7 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ auth, messagesRef }) => {
         createdAt: new Date(),
         uid,
         photoURL,
+        name: currentUser?.displayName,
       });
     }
 

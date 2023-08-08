@@ -1,5 +1,15 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Auth } from 'firebase/auth';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
+import { styled } from '@mui/system';
+
+const StyledMessage = styled('div')`
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color:white;
+`;
 
 interface Message {
   id: string;
@@ -20,14 +30,17 @@ interface ChatMessageProps {
 class ChatMessage extends Component<ChatMessageProps> {
   render() {
     const { message, auth } = this.props;
-    const { text, uid, photoURL } = message;
+    const { text, uid, photoURL, name } = message;
     const messageClass = uid === auth.currentUser?.uid ? 'sent' : 'received';
 
     return (
-      <div className={`message ${messageClass}`}>
-        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="Avatar" />
-        <p>{text}</p>
-      </div>
+      <StyledMessage className={`message ${messageClass}`}>
+        <Avatar alt="avatar" src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+        <div>
+          <Typography variant="subtitle1">{name}</Typography>
+          <Typography>{text}</Typography>
+        </div>
+      </StyledMessage>
     );
   }
 }
