@@ -1,6 +1,6 @@
 import { useState,useEffect} from 'react';
 import '../App.css';
-import {  collection } from 'firebase/firestore';
+import {  CollectionReference, collection } from 'firebase/firestore';
 
 
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -9,7 +9,18 @@ import SignIn from '../components/SignIn';
 import Header from '../components/Header';
 import ChatRoom from '../components/ChatRoom';
 import { auth,firestore } from '../firebase';
-const messagesRef = collection(firestore, 'messages');
+interface Message {
+  id: string;
+  text: string;
+  uid: string;
+  photoURL: string;
+  name:string
+  createdAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
+}
+const messagesRef = collection(firestore, 'messages') as CollectionReference<Message>;
 
 function App(): JSX.Element {
   const [user] = useAuthState(auth);

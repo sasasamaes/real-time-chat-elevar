@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import { Auth } from 'firebase/auth';
 
 // Tipos
 export interface AppState {

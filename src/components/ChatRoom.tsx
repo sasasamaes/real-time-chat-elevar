@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { collection, query, orderBy, limit, addDoc } from 'firebase/firestore';
+import {  query, orderBy, limit, addDoc ,CollectionReference,serverTimestamp} from 'firebase/firestore';
 import { Auth } from 'firebase/auth';
 import ChatMessage from './ChatMessage';
 
@@ -13,18 +13,19 @@ interface Message {
     seconds: number;
     nanoseconds: number;
   };
+  name: string
 }
 
 interface ChatRoomProps {
   auth: Auth;
-  messagesRef: ReturnType<typeof collection>;
+  messagesRef: CollectionReference<Message>; 
 }
 
 const ChatRoom: React.FC<ChatRoomProps> = ({ auth, messagesRef }) => {
   const dummy = useRef<HTMLDivElement | null>(null);
 
   const querys = query(messagesRef, orderBy('createdAt'), limit(25));
-  const [messages] = useCollectionData<Message>(querys, { idField: 'id' });
+  const [messages] = useCollectionData<Message>(querys);
   const [formValue, setFormValue] = useState<string>('');
 
   const sendMessage = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -37,11 +38,12 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ auth, messagesRef }) => {
 
     if (uid && photoURL) {
       await addDoc(messagesRef, {
+        id: '',
         text: formValue,
-        createdAt: new Date(),
+        createdAt: serverTimestamp(),
         uid,
         photoURL,
-        name: currentUser?.displayName,
+        name: currentUser?.displayName || 'Anonymous',
       });
     }
 
