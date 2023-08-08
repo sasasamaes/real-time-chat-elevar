@@ -150,13 +150,24 @@ p {
 
 .sent p {
   color: white; /* Color del texto */
-  background: #0b93f6; /* Color de fondo */
+  background: #B292E5; /* Color de fondo */
+  align-self: flex-end; /* Alineación en la parte derecha */
+}
+.sent h6 {
+  color: white; /* Color del texto */
+  background:#9d81c9; /* Color de fondo */
+  font-size: 11px;
   align-self: flex-end; /* Alineación en la parte derecha */
 }
 
 /* Estilos para los mensajes recibidos */
 .received p {
-  background: #e5e5ea; /* Color de fondo */
+  background: #D9AA12; /* Color de fondo */
+  color: black; /* Color del texto */
+}
+.received h6 {
+  font-size: 11px;
+  background: #c59b11; /* Color de fondo */
   color: black; /* Color del texto */
 }
 
