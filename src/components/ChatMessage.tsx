@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Auth } from 'firebase/auth';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
@@ -17,6 +17,7 @@ interface Message {
   text: string;
   uid: string;
   photoURL: string;
+  name:string
   createdAt: {
     seconds: number;
     nanoseconds: number;
@@ -36,7 +37,7 @@ class ChatMessage extends Component<ChatMessageProps> {
 
     return (
       <StyledMessage className={`message ${messageClass}`}>
-        <Avatar  alt="avatar" src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+        <Avatar  alt="avatar"  src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
         <div>
         <Typography variant="subtitle1" bgcolor={'#181717'} padding={1} borderRadius={0}>{name}</Typography>
 
