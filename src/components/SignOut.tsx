@@ -3,12 +3,12 @@ import React from 'react';
 import { Auth } from '@firebase/auth';
 
 interface SignOutProps {
-  auth: Auth;
+  auth: Auth | null;
 }
 
 const SignOut: React.FC<SignOutProps> = ({ auth }) => {
   return (
-    auth.currentUser && (
+    auth && auth.currentUser && (
       <button className="sign-out" onClick={() => auth.signOut()}>
         Sign Out
       </button>

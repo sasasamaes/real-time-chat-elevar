@@ -55,7 +55,7 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ auth, messagesRef }) => {
     <>
       <main>
         {messages &&
-          messages.map((msg: Message) => <ChatMessage key={msg.id} message={msg} auth={auth} />)}
+          messages.map((msg: Message, index: number) => <ChatMessage key={`message${msg.id}-${index} `} message={msg} auth={auth} />)}
 
         <div ref={dummy}></div>
       </main>
@@ -78,4 +78,3 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ auth, messagesRef }) => {
 };
 
 export default ChatRoom;
-

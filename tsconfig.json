@@ -8,6 +8,9 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "isolatedModules": true,
+    "types": [
+      "vite-plugin-pwa/client"
+    ],
     "jsx": "preserve",
     "lib": ["DOM", "ESNext"],
     "moduleResolution": "node",

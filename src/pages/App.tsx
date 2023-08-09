@@ -20,10 +20,10 @@ interface Message {
     nanoseconds: number;
   };
 }
-const messagesRef = collection(firestore, 'messages') as CollectionReference<Message>;
 
 function App(): JSX.Element {
   const [user] = useAuthState(auth);
+  const messagesRef = collection(firestore, 'messages') as CollectionReference<Message>;
 
   const [canInstall, setCanInstall] = useState(false);
 

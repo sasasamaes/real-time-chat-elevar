@@ -26,14 +26,17 @@ interface Message {
 
 interface ChatMessageProps {
   message: Message;
-  auth: Auth;
+  auth: Auth | null;
 }
 
 class ChatMessage extends Component<ChatMessageProps> {
   render() {
     const { message, auth } = this.props;
     const { text, uid, photoURL, name } = message;
-    const messageClass = uid === auth.currentUser?.uid ? 'sent' : 'received';
+    let messageClass = '';
+    if(auth){
+       messageClass = uid === auth.currentUser?.uid ? 'sent' : 'received';
+    }
 
     return (
       <StyledMessage className={`message ${messageClass}`}>

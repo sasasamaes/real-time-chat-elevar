@@ -1,36 +1,46 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 import react from '@vitejs/plugin-react'
-import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
   plugins: [
     react(),
+  /*
     VitePWA({
-      manifest: {
-        name: 'Mi Progressive Web App',
-        short_name: 'Mi PWA',
-        description: 'Una aplicación web progresiva',
-        theme_color: '#007bff',
-        background_color: '#ffffff',
-        start_url: '/',
-        display: 'standalone',
-        icons: [
-          {
-            src: '/path/to/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/path/to/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
+         add this to cache all the imports
+         workbox: {
+          globPatterns: ["** /*"],
+        },
+       add this to cache all the
+        static assets in the public folder
+        includeAssets: [
+            "** /*",
         ],
-      },
-      workbox: {
-        // ... Opciones de configuración de Workbox ...
-      },
-    }),
+        manifest: {
+          name: 'Elevar Test',
+          short_name: 'ElevarChat',
+          description: 'Una aplicación web progresiva de real time chat',
+          theme_color: '#007bff',
+          background_color: '#ffffff',
+          start_url: '/',
+          display: 'standalone',
+          icons: [
+            {
+              src: '/path/to/icon-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+            },
+            {
+              src: '/path/to/icon-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+          ],
+        },
+       
+      }),
+  
+  */
   ],
   build: {
     rollupOptions: {

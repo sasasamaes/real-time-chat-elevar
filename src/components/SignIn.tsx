@@ -4,15 +4,17 @@ import 'firebase/compat/auth'
 import { Auth } from '@firebase/auth';
 
 interface SignInProps {
-  auth: Auth
+  auth: Auth |  null;
 }
 
 const SignIn: React.FC<SignInProps> = ({ auth }): JSX.Element => {
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider()
     try {
-      const result = await signInWithPopup(auth, provider)
-      console.log(result)
+      if(auth){
+        const result = await signInWithPopup(auth, provider)
+        console.log(result)
+      }
     } catch (error) {
       console.log(error)
     }

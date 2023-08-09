@@ -3,7 +3,7 @@ import SignOut from "./SignOut"
 import { Auth } from '@firebase/auth';
 
 interface Header {
-  auth: Auth;
+  auth: Auth | null;
 }
 
 const Header: React.FC<Header> = ({ auth }) => {
