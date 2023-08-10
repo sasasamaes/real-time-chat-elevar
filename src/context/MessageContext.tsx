@@ -11,7 +11,7 @@ import {
   query,
   serverTimestamp,
 } from 'firebase/firestore'
-import { firestore } from '../firebase'
+import { firestore } from '../utils/firebase'
 import { Auth } from 'firebase/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 

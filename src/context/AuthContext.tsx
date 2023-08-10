@@ -2,7 +2,7 @@ import { createContext, useState, useEffect, ReactNode } from 'react';
 import { Auth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth' // Importa el servicio de Autenticación
 import 'firebase/compat/auth'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import {auth} from '../firebase'
+import {auth} from '../utils/firebase'
 
 interface User {
     
