@@ -7,8 +7,11 @@ export default defineConfig({
     react(),
     VitePWA({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       injectRegister: 'auto',
+      base: "/",
+      srcDir: "src",
+      filename: "sw.ts",
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         clientsClaim: true,
@@ -17,19 +20,27 @@ export default defineConfig({
       manifest: {
         name: 'Elevar Test',
         short_name: 'Elevar',
+        start_url: "/",
+        display: "standalone",
         description: 'chat Pwa test para elevar ',
         theme_color: '#ffffff',
         icons: [
           {
-            src: 'logo.webp',
-            sizes: '192x192',
-            type: 'image/webp'
+            src: "icon-192.png",
+            sizes: "192x192",
+            type: "image/png",
           },
           {
-            src: 'logo.webp',
-            sizes: '512x512',
-            type: 'image/webp'
-          }
+            src: "/icon-512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "icon-512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any maskable",
+          },
         ]},
     }),
     /*
