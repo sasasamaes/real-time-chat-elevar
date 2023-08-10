@@ -9,7 +9,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       registerType: 'prompt',
       injectRegister: 'auto',
-      base: "/",
+      // base: "/",
       // srcDir: "src",
       // filename: "sw.ts",
       workbox: {
