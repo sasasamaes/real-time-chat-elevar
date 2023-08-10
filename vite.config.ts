@@ -6,8 +6,11 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      srcDir: "src",
+      filename: "sw.ts",
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       registerType: 'prompt',
+      strategies: "injectManifest",
       injectRegister: 'auto',
       // base: "/",
       // srcDir: "src",
