@@ -20,7 +20,6 @@ export default defineConfig({
       manifest: {
         name: 'Elevar Test',
         short_name: 'Elevar',
-        scope: "/",
         start_url: "https://real-time-chat-elevar-git-main-sasasamaes.vercel.app",
         display: "standalone",
         description: 'chat Pwa test para elevar ',
