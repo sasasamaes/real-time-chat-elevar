@@ -1,11 +1,38 @@
-import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
+import { defineConfig } from 'vite'
+import { VitePWA } from 'vite-plugin-pwa'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [
     react(),
-  /*
+    VitePWA({
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      registerType: 'autoUpdate',
+      injectRegister: 'auto',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        clientsClaim: true,
+        skipWaiting: true,
+      },
+      manifest: {
+        name: 'Elevar Test',
+        short_name: 'Elevar',
+        description: 'chat Pwa test para elevar ',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'logo.webp',
+            sizes: '192x192',
+            type: 'image/webp'
+          },
+          {
+            src: 'logo.webp',
+            sizes: '512x512',
+            type: 'image/webp'
+          }
+        ]},
+    }),
+    /*
     VitePWA({
          add this to cache all the imports
          workbox: {
@@ -50,4 +77,4 @@ export default defineConfig({
       },
     },
   },
-});
+})

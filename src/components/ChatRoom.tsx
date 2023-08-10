@@ -1,20 +1,11 @@
-import React, { useRef, useState } from 'react';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
-import {  query, orderBy, limit, addDoc ,CollectionReference,serverTimestamp} from 'firebase/firestore';
+import React, { useContext, useRef, useState } from 'react';
+import { CollectionReference,} from 'firebase/firestore';
 import { Auth } from 'firebase/auth';
-import ChatMessage from './ChatMessage';
 
-interface Message {
-  id: string; 
-  text: string;
-  uid: string;
-  photoURL: string;
-  createdAt: {
-    seconds: number;
-    nanoseconds: number;
-  };
-  name: string
-}
+import ChatMessage from './ChatMessage';
+import { MessageContext } from '../context/MessageContext';
+import { Message } from 'types';
+
 
 interface ChatRoomProps {
   auth: Auth;
@@ -23,31 +14,12 @@ interface ChatRoomProps {
 
 const ChatRoom: React.FC<ChatRoomProps> = ({ auth, messagesRef }) => {
   const dummy = useRef<HTMLDivElement | null>(null);
-
-  const querys = query(messagesRef, orderBy('createdAt'), limit(25));
-  const [messages] = useCollectionData<Message>(querys);
+  const { sendMessageFirestore, messages } = useContext(MessageContext)
   const [formValue, setFormValue] = useState<string>('');
 
   const sendMessage = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-
-    const currentUser = auth.currentUser;
-    console.log(currentUser)
-    const uid = currentUser?.uid;
-    const photoURL = currentUser?.photoURL;
-
-    if (uid && photoURL) {
-      await addDoc(messagesRef, {
-        id: '',
-        text: formValue,
-        createdAt: serverTimestamp(),
-        uid,
-        photoURL,
-        name: currentUser?.displayName || 'Anonymous',
-      });
-    }
-
-    setFormValue('');
+    await sendMessageFirestore(auth, messagesRef, formValue)
     dummy.current?.scrollIntoView({ behavior: 'smooth' });
   };
 

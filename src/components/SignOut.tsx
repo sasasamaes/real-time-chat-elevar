@@ -1,15 +1,11 @@
-import 'firebase/compat/auth';
-import React from 'react';
-import { Auth } from '@firebase/auth';
+import React, {useContext} from 'react'
+import { AuthContext } from '../context/AuthContext';
 
-interface SignOutProps {
-  auth: Auth | null;
-}
-
-const SignOut: React.FC<SignOutProps> = ({ auth }) => {
+const SignOut: React.FC = () => {
+  const { logout, auth } = useContext(AuthContext)
   return (
     auth && auth.currentUser && (
-      <button className="sign-out" onClick={() => auth.signOut()}>
+      <button className="sign-out" onClick={() => logout()}>
         Sign Out
       </button>
     )

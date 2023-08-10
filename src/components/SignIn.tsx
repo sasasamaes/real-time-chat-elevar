@@ -1,28 +1,11 @@
-import React from 'react'
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth' // Importa el servicio de Autenticación
-import 'firebase/compat/auth'
-import { Auth } from '@firebase/auth';
+import React, {useContext} from 'react'
+import { AuthContext } from '../context/AuthContext';
 
-interface SignInProps {
-  auth: Auth |  null;
-}
-
-const SignIn: React.FC<SignInProps> = ({ auth }): JSX.Element => {
-  const signInWithGoogle = async () => {
-    const provider = new GoogleAuthProvider()
-    try {
-      if(auth){
-        const result = await signInWithPopup(auth, provider)
-        console.log(result)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+const SignIn: React.FC = (): JSX.Element => {
+  const { login } = useContext(AuthContext)
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>
+      <button className="sign-in" onClick={login}>
         Iniciar sesión con Google
       </button>
       <p>No violar las normas de la comunidad o serás baneado de por vida.</p>
