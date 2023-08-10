@@ -27,19 +27,19 @@ export default defineConfig({
         theme_color: '#ffffff',
         icons: [
           {
-            src: "/logo.webp",
+            src: "/logo.png",
             sizes: "192x192",
-            type: "image/webp",
+            type: "image/png",
           },
           {
-            src: "/logo.webp",
+            src: "/logo.png",
             sizes: "512x512",
-            type: "image/webp",
+            type: "image/png",
           },
           {
-            src: "/logo.webp",
+            src: "/logo.png",
             sizes: "512x512",
-            type: "image/webp",
+            type: "image/png",
             purpose: "any maskable",
           },
         ]},
